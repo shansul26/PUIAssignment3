@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Put css calls here -->
+        <link rel="stylesheet" type="text/css" href="./res/bootstrap-3.3.7-dist/css/bootstrap.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        
+    </head>
+    
+    
+    
+    <header class = "navbar-default">
+        <div class="container">
+            <div class = "row">
+                <div class="col-xs-4">
+                    <span class = "glyphicon glyphicon-menu-left"></span> Back
+                </div>
+                <div class="col-xs-4">
+                    Club Softball
+                </div>
+                <div class="col-xs-4">
+                    Edit
+                </div>
+            </div>
+        </div>
+    </header>
+        
+    <body>
+        <div class = "container">
+            <div class = "row">
+                <div class="col-xs-1"></div>
+                <button id="add-new" class="btn btn-default col-xs-3" onclick="addListItem()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Add new
+                </button>
+                <div class="col-xs-1"></div>
+                <input id="task-name" class="col-xs-5" type="text" placeholder="Type some words here">
+                <div class="col-xs-1"></div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="tasks">
+                <input type="checkbox"> Pick up team uniforms <br/>
+                <input type="checkbox"> Pick up snacks
+            </div>
+        </div>
+    </body>
+    
+    <script src="js/todolast.js"></script>
+
+</html>
