@@ -2,13 +2,11 @@
     background-color: #036594;
     margin-bottom: 15px;
     color: white;
-    align-content: center;
     height: 40px;
 }
 
 .todo-nav div {
     height: 40px;
-    
 }
 
 .todo-title {
@@ -19,17 +17,33 @@
 .todo-nav-text {
     position: absolute;
     bottom: 0;
+    align-self:center;
 }
 
 .container {
     margin-left: 14px;
-    margin-bottom: 20px;
-    
 }
 
 .list-item {
     margin-bottom: 10px;
+    height:34px;
+    line-height:34px;
+    
 }
 
-.delete-button {
+.todo-item-content {
+    height:inherit;
 }
+
+.task-text {
+    margin-left:5px;
+    
+}
+
+#add-new {
+    margin-left: 14px;
+}
+
+
+
+

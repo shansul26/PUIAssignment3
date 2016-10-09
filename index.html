@@ -15,14 +15,8 @@
     <header class = "todo-nav">
         <div class="container">
             <div class = "row">
-                <div class="col-xs-2">
-                    <span class = "todo-nav-text"><span class = "glyphicon glyphicon-menu-left"></span> Back</span>
-                </div>
                 <div class="col-xs-4 todo-title">
-                    <span class = "todo-nav-text">Club Softball</span>
-                </div>
-                <div class="col-xs-2">
-                    <span class="todo-nav-text">Edit</span>
+                    <span class = "todo-nav-text">ToDoLast</span>
                 </div>
             </div>
         </div>
@@ -31,15 +25,19 @@
     <body onload="loadListItems()">
         <div class = "container">
             <div class = "row">
-                <button id="add-new" class="btn btn-default col-xs-3" data-toggle="modal" data-target="#addItemModal"> <!--onclick="addListItem()">-->
+                <button id="add-new" class="btn btn-default col-xs-3" data-toggle="modal" data-target="#add-item-modal"> <!--onclick="addListItem()">-->
                     <span class="glyphicon glyphicon-plus"></span>
                     Add new
                 </button>
             </div>
         </div>
         <div id="content" class="container">
+            <h3>To-Do</h3>
             <div id="tasks">
                 <!-- to do tasks go here -->
+            </div>
+            <h3>Completed Tasks</h3>
+            <div id="completed-tasks">
             </div>
         </div>
         
@@ -47,7 +45,7 @@
     </body>
     
     <footer>
-        <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="add-item-modal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -61,14 +59,14 @@
                       <div class="form-group">
                           <label for="task-name">Task name</label>
                           <input class= "form-control" id="task-name" type="text" placeholder="Type some words here">
-                          <br>
+                          <!--<br>
                           <label for="assigned-to">Assigned to</label>
                           <select class="form-control" id="assigned-to">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                          </select>
+                            <option id="option-me">Me</option>
+                            <option id="option-tom">Tom</option>
+                            <option id="option-sara">Sara</option>
+                            <option id="option-joey">Joey</option>
+                          </select>-->
                       </div>
                   </form>
               </div>
@@ -82,7 +80,6 @@
     </footer>
     
     <script src="res/jquery-3.1.1.min.js"></script>
-    <script src="res/handlebars-v4.0.5.js"></script>
     <script src="js/todolast.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -11,7 +11,7 @@ $("#add-task").click( function() {
     createNewTask($("#task-name").val());
     $("#task-name").val("");
     $("#assigned-to").val("");
-    $("#addItemModal").modal("hide");
+    $("#add-item-modal").modal("hide");
 });
 
 /*
@@ -23,23 +23,55 @@ function addListItem(){
 }*/
 
 function createNewTask(taskName){
-    var template = "<div class=\"row list-item\" id = {{taskDivId}}> <div class=\"col-xs-5\"><input type=\"checkbox\"> {{taskName}}</div><button class=\"btn btn-default delete-button col-xs-1\"><span class=\"glyphicon glyphicon-trash\"></span></button></div>"
-
-    // Compile the template data into a function
-    var templateScript = Handlebars.compile(template);
-
-    var context = {"taskDivId" : "task" + nextTaskId, "taskName" : taskName, "taskId" : nextTaskId };
-
-    var html = templateScript(context);
     
-    $("#tasks").append(html);
+    var taskDivId = "task" + nextTaskId;
     
+    $("#tasks").append($("<div>").attr("class", "row list-item").attr("id", taskDivId)
+        .append($("<div>").attr("class", "col-xs-5 todo-item-content")
+            .append($("<input>").attr("type", "checkbox").attr("class", "todo-checkbox"))
+            .append($("<span>").attr("class", "task-text").text(taskName)))
+        /*.append($("<button>").attr("class", "btn btn-default delete-button col-xs-1")
+                .append($("<span>").attr("class", "glyphicon glyphicon-trash")))*/
+        .append($("<button>").attr("class", "btn btn-danger delete-button col-xs-1")
+                .append($("<span>").attr("class", "glyphicon glyphicon-trash"))));
+     
+      
     nextTaskId++;
 }
 
 //getting dynamically added elements to register a click was the most difficult thing encountered
-$(document).ready(function() {
+$(document.body).on("click", ".delete-button", function() {
+    $(this).parent("div").remove();
+});
+
+$(document.body).on("change", ".todo-checkbox", function() {
+    if($(this).is(":checked")){
+            //move to the "done" list
+            var row = $(this).parent("div").parent("div");
+            $("#completed-tasks").append(row);
+            
+        }
+        else{
+            //move to the "to-do" list
+            var row = $(this).parent("div").parent("div");
+            $("#tasks").append(row);
+        }
+});
+/*$(document).ready(function() {
     $(".delete-button").click(function(){
         $(this).parent("div").remove();
     });
-});
+    $(".todo-checkbox").change(function(){
+        if($(this).is(":checked")){
+            //move to the "done" list
+            var row = $(this).parent("div").parent("div");
+            $("#completed-tasks").append(row);
+            
+        }
+        else{
+            //move to the "to-do" list
+            var row = $(this).parent("div").parent("div");
+            $("#tasks").append(row);
+        }
+    });
+});*/
