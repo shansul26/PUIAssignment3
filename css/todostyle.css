@@ -1,0 +1,35 @@
+.todo-nav {
+    background-color: #036594;
+    margin-bottom: 15px;
+    color: white;
+    align-content: center;
+    height: 40px;
+}
+
+.todo-nav div {
+    height: 40px;
+    
+}
+
+.todo-title {
+    font-size: 24px;
+    
+}
+
+.todo-nav-text {
+    position: absolute;
+    bottom: 0;
+}
+
+.container {
+    margin-left: 14px;
+    margin-bottom: 20px;
+    
+}
+
+.list-item {
+    margin-bottom: 10px;
+}
+
+.delete-button {
+}
