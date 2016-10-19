@@ -22,10 +22,11 @@ function createNewTask(taskName){
         .append($("<div>").attr("class", "col-xs-6 todo-item-content")
             .append($("<input>").attr("type", "checkbox").attr("class", "todo-checkbox"))
             .append($("<span>").attr("class", "task-text").text(taskName)))
-        .append($("<button>").attr("class", "btn btn-default edit-button col-xs-1").attr("data-toggle", "modal").attr("data-target","#edit-item-modal")
-                .append($("<span>").attr("class", "glyphicon glyphicon-pencil")))
-        .append($("<button>").attr("class", "btn btn-danger delete-button col-xs-1")
-                .append($("<span>").attr("class", "glyphicon glyphicon-trash"))));
+       .append($("<div>").attr("class", "button-container")
+            .append($("<button>").attr("class", "btn btn-default edit-button col-xs-1").attr("data-toggle", "modal").attr("data-target","#edit-item-modal")
+                    .append($("<span>").attr("class", "glyphicon glyphicon-pencil")))
+            .append($("<button>").attr("class", "btn btn-danger delete-button col-xs-1")
+                    .append($("<span>").attr("class", "glyphicon glyphicon-trash")))));
      
       
     nextTaskId++;
