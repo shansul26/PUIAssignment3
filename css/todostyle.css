@@ -2,15 +2,15 @@
     background-color: #036594;
     margin-bottom: 15px;
     color: white;
-    height: 40px;
+    height: 50px;
 }
 
 .todo-nav div {
-    height: 40px;
+    height: 50px;
 }
 
 .todo-title {
-    font-size: 24px;
+    font-size: xx-large;
     text-align: center;
 }
 
@@ -77,4 +77,8 @@ h3 {
 #completed-task-header {
     
     margin-right: 14px;
+}
+
+a {
+    cursor: pointer;
 }
