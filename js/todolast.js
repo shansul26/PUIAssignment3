@@ -1,5 +1,3 @@
-console.log("hello world");
-
 var nextTaskId = 0;
 
 function loadListItems(){
@@ -8,11 +6,21 @@ function loadListItems(){
 }
 
 $("#add-task").click( function() {
+    addTask();
+});
+
+$("#add-item-modal").submit( function() {
+    // prevent default browser behaviour
+    event.preventDefault();
+    addTask();
+});
+
+function addTask() {
     createNewTask($("#add-task-name").val());
     $("#add-task-name").val("");
     $("#assigned-to").val("");
     $("#add-item-modal").modal("hide");
-});
+}
 
 function createNewTask(taskName){
     
@@ -35,7 +43,7 @@ function createNewTask(taskName){
 
 //getting dynamically added elements to register a click was the most difficult thing encountered
 $(document.body).on("click", ".delete-button", function() {
-    $(this).parent("div").remove();
+    $(this).parent("div").parent("div").parent("div").remove();
 });
 
 $(document.body).on("change", ".todo-checkbox", function() {
@@ -53,17 +61,27 @@ $(document.body).on("change", ".todo-checkbox", function() {
 });
 
 $(document.body).on("click", ".edit-button", function() {
-    var taskName = $(this).parent("div").children("div").children("span").text();
+    var taskName = $(this).parent("div").parent("div").parent("div").children("div").children("span").text();
     $("#edit-task-name").val(taskName);
-    $("#edit-task-name").attr("editing", $(this).parent("div").attr("id"));
+    $("#edit-task-name").attr("editing", $(this).parent("div").parent("div").parent("div").attr("id"));
 });
 
 $("#save-changes").click( function() {
+    saveChanges();
+});
+
+$("#edit-item-modal").submit( function() {
+    // prevent default browser behaviour
+    event.preventDefault();
+    saveChanges();
+});
+
+function saveChanges() {
     var $updateId = "#" + $("#edit-task-name").attr("editing");
     $($updateId).children("div").children("span").text($("#edit-task-name").val())
     $("#edit-task-name").val("");
     $("#edit-item-modal").modal("hide");
-});
+}
 
 $("#toggle-completed").click( function() {
     $("#completed-tasks").toggle();
