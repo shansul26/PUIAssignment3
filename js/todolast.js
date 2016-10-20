@@ -19,14 +19,15 @@ function createNewTask(taskName){
     var taskDivId = "task" + nextTaskId;
     
     $("#tasks").append($("<div>").attr("class", "row list-item").attr("id", taskDivId)
-        .append($("<div>").attr("class", "col-xs-6 todo-item-content")
+        .append($("<div>").attr("class", "col-xs-7 todo-item-content")
             .append($("<input>").attr("type", "checkbox").attr("class", "todo-checkbox"))
             .append($("<span>").attr("class", "task-text").text(taskName)))
-       .append($("<div>").attr("class", "button-container")
-            .append($("<button>").attr("class", "btn btn-default edit-button col-xs-1").attr("data-toggle", "modal").attr("data-target","#edit-item-modal")
-                    .append($("<span>").attr("class", "glyphicon glyphicon-pencil")))
-            .append($("<button>").attr("class", "btn btn-danger delete-button col-xs-1")
-                    .append($("<span>").attr("class", "glyphicon glyphicon-trash")))));
+       .append($("<div>").attr("class", "button-container col-xs-5")
+            .append($("<div>").attr("class", "row")
+                .append($("<button>").attr("class", "btn btn-danger delete-button col-xs-4 pull-right")
+                    .append($("<span>").attr("class", "glyphicon glyphicon-trash")))
+                .append($("<button>").attr("class", "btn btn-default edit-button col-xs-4 pull-right").attr("data-toggle", "modal").attr("data-target","#edit-item-modal")
+                    .append($("<span>").attr("class", "glyphicon glyphicon-pencil"))))));
      
       
     nextTaskId++;
@@ -62,4 +63,16 @@ $("#save-changes").click( function() {
     $($updateId).children("div").children("span").text($("#edit-task-name").val())
     $("#edit-task-name").val("");
     $("#edit-item-modal").modal("hide");
+});
+
+$("#toggle-completed").click( function() {
+    $("#completed-tasks").toggle();
+    $("#completed-task-header").toggle();
+    if($("#completed-tasks").is(":visible")) {
+        $("#toggle-completed").text("Hide completed");
+    }
+    else {
+        $("#toggle-completed").text("Show completed");
+    }
+    
 });
